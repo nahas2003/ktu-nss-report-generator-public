@@ -5,3 +5,4 @@ weasyprint
 docxtpl
 python-docx
 Pillow
+gunicorn
