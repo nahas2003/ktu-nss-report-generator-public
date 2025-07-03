@@ -1,0 +1,7 @@
+Flask
+openai
+python-dotenv
+weasyprint
+docxtpl
+python-docx
+Pillow
