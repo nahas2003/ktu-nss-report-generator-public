@@ -1,41 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>NSS Report Generator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NSS Report Generator</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #4e54c8, #8f94fb);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      color: #fff;
+    }
+
+    .logo-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .logo-box img {
+      height: 80px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 8px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    label {
+      font-weight: 500;
+      margin-top: 15px;
+      display: block;
+      color: #e0e0e0;
+    }
+
+    select,
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 14px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #ccc;
+    }
+
+    input[type="file"] {
+      margin-top: 10px;
+    }
+
+    input[type="radio"] {
+      margin-top: 10px;
+      margin-right: 5px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 14px;
+      background-color: #ff6f00;
+      border: none;
+      color: white;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e65100;
+    }
+
+    @media (max-width: 600px) {
+      .logo-box {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h2>Generate NSS Report</h2>
+
+  <div class="form-container">
+    <div class="logo-box">
+      <img src="https://ibb.co/0ptb0pxH" alt="Logo 1">
+      <img src="https://ibb.co/YFY1Xm0b" alt="Logo 2">
+      <img src="https://ibb.co/HTLjbZZn" alt="Logo 3">
+    </div>
+
+    <h2> NSS Report Generator</h2>
 
     <form method="POST" enctype="multipart/form-data">
 
-        <label>Category of Program:</label><br>
-        <select name="category" required>
-            <option value="Campus Activity">Report of Campus Activity</option>
-            <option value="Community Activity">Report of Community Activity</option>
-            <option value="Orientation Program">Report of Orientation Program</option>
-        </select><br><br>
+      <label>Category of Program:</label>
+      <select name="category" required>
+        <option value="Campus Activity">Report of Campus Activity</option>
+        <option value="Community Activity">Report of Community Activity</option>
+        <option value="Orientation Program">Report of Orientation Program</option>
+      </select>
 
-        <label>Program Name:</label><br>
-        <input name="program" required><br><br>
+      <label>Program Name:</label>
+      <input type="text" name="program" required placeholder="Eg: Blood Donation Camp">
 
-        <label>Date:</label><br>
-        <input type="date" name="date" required><br><br>
+      <label>Date:</label>
+      <input type="date" name="date" required>
 
-        <label>Duration (e.g., 3 hrs):</label><br>
-        <input name="duration" required><br><br>
+      <label>Duration (e.g., 3 hrs):</label>
+      <input type="text" name="duration" required placeholder="Eg: 3 hrs">
 
-        <!-- ✅ New: Choose AI or Manual -->
-        <label>Choose Description Type:</label><br>
-        <input type="radio" name="desc_type" value="manual" checked> Manual Entry<br>
-        <input type="radio" name="desc_type" value="ai"> AI Generated (ChatGPT)<br><br>
+      <label>Choose Description Type:</label><br>
+      <input type="radio" name="desc_type" value="manual" checked> Manual Entry
+      <input type="radio" name="desc_type" value="ai"> AI Generated (ChatGPT)
 
-        <label>Highlights of the Program:</label><br>
-        <textarea name="notes" rows="5" cols="50" required></textarea><br><br>
+      <label>Highlights of the Program:</label>
+      <textarea name="notes" rows="5" required placeholder="Mention main points, speakers, outcomes..."></textarea>
 
-        <label>Upload up to 4 photos:</label><br>
-        <input type="file" name="photos" multiple><br><br>
+      <label>Upload up to 4 photos:</label>
+      <input type="file" name="photos" multiple accept="image/*">
 
-        <button type="submit">Generate Report</button>
+      <button type="submit">Generate Report</button>
     </form>
+    <footer style="text-align: center; margin-top: 30px; font-size: 13px; color: #ccc;">
+    &copy; 2025 Muhammed Nahas N. All rights reserved.
+</footer>
+
+  </div>
+
 </body>
 </html>
